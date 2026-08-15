@@ -61,6 +61,13 @@ iteration, 3) consistency with existing code" for a portfolio project, or "1) sa
 correctness, 2) working feature, 3) consistency" for something production-critical.
 Don't design for scale/flexibility the project doesn't need without an explicit ask.]
 
+**Stage-end audit:** if the project tracks work in stages/milestones (a roadmap, a
+"Current status" section, etc.), run one full `reviewer` pass (no `architect` needed)
+over everything built in a stage before starting the next one — even if every task in
+it individually went through fast/normal mode. `reviewer-lite`'s per-task diff scope
+doesn't reliably catch issues that only show up in aggregate across a stage, e.g.
+ownership checks or cascade/FK config touched piecemeal across several endpoints.
+
 ## Using the docs
 
 1. Task in a known area → check `## ADR Notes` in `docs/decisions.md` first.
