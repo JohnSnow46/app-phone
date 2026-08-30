@@ -1,5 +1,6 @@
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Personal overrides — .claude/ itself is meant to be committed (see README),
 # but settings.local.json is per-developer and must never be.
