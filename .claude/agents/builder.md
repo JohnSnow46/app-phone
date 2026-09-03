@@ -29,7 +29,8 @@ asked for.
 - Make large architectural decisions on your own (e.g. changing layer structure, picking
   a new pattern) — if you hit a real need for one, stop and propose a consult with
   `architect` instead of deciding on the fly
-- Modify `docs/decisions.md` — that belongs to the architect
+- Modify `docs/decisions.md` — the `## Index` entries belong to `architect` and the
+  `## ADR Notes` log is appended by the main/orchestrating thread, not by `builder`
 
 ## How you work
 1. Before writing code, check the existing structure (Read/Grep/Glob) and
