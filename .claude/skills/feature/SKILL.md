@@ -22,7 +22,7 @@ Before doing anything else, output one line:
 
 ## 2. Run the chain
 
-Delegate via the Task tool, in order, waiting for each agent to finish before starting
+Delegate via the Agent tool, in order, waiting for each agent to finish before starting
 the next:
 
 - **Fast**: `builder` → `reviewer-lite`
