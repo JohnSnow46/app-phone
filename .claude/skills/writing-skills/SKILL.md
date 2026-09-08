@@ -6,7 +6,7 @@ description: Use when creating a new skill or agent in this repo, or editing an 
 # Writing Skills (and Agents)
 
 Condensed from [obra/superpowers](https://github.com/obra/superpowers)' `writing-skills`
-(MIT-adjacent, credited — not copied verbatim). Full methodology there includes
+(MIT-licensed, credited — not copied verbatim). Full methodology there includes
 pressure-testing with subagents; this version keeps the rules that matter most for a
 small, hand-maintained set.
 
