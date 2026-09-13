@@ -164,7 +164,7 @@ you outgrow the starter:
 
 - **Bucket folders for skills** (`engineering/`, `personal/`, `misc/`, `deprecated/`, per
   mattpocock/skills) — worth it once you have more than a handful of skills and need to
-  separate promoted ones from drafts/retired ones. Not needed at 5 skills.
+  separate promoted ones from drafts/retired ones. Not needed at 6 skills.
 - **A human-facing doc per skill** (`docs/skills/<name>.md`, per compound-engineering-plugin
   and mattpocock/skills) — a mirror of each `SKILL.md` written for people browsing docs
   rather than for the model. Worth it once your skill count makes the README table
