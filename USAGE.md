@@ -191,7 +191,9 @@ that no longer exists:
   `docs/decisions.md`, which no longer exists.
 - **Single-person project, no code review culture** → delete `reviewer`/`reviewer-lite`,
   have `builder` report directly to you instead. In `feature/SKILL.md`'s chain list, drop
-  the reviewer/reviewer-lite step from every mode's chain.
+  the reviewer/reviewer-lite step from every mode's chain. Also drop the "Stage-end
+  audit" mandatory rule from `CLAUDE.md` — it names `reviewer` by name and has nothing
+  left to invoke once that agent is deleted.
 
 Cut freely — a template you've pruned to fit is more useful than one you're afraid to
 touch.
