@@ -184,7 +184,9 @@ that no longer exists:
   `CLAUDE.md` and replace with a one-line note that it's always the same chain. In
   `feature/SKILL.md`, delete the Normal and Deep rows from the chain list, or delete the
   skill entirely — with only one path, there's nothing left to classify, so `/feature`
-  isn't buying you anything over just asking normally.
+  isn't buying you anything over just asking normally. Also drop (or reword to name
+  `reviewer-lite`) the "Stage-end audit" mandatory rule from `CLAUDE.md` — it names
+  `reviewer` directly, and this trim deletes that agent too.
 - **Don't want an ADR system** → delete `docs/` entirely and the "Using the docs" section
   of `CLAUDE.md`. `architect` then just designs and hands steps to `builder`, no
   file-writing. In `feature/SKILL.md`, delete step 3 ("Log ADR usage") — it appends to
