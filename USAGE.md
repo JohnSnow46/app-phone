@@ -190,7 +190,9 @@ that no longer exists:
 - **Don't want an ADR system** → delete `docs/` entirely and the "Using the docs" section
   of `CLAUDE.md`. `architect` then just designs and hands steps to `builder`, no
   file-writing. In `feature/SKILL.md`, delete step 3 ("Log ADR usage") — it appends to
-  `docs/decisions.md`, which no longer exists.
+  `docs/decisions.md`, which no longer exists. Also drop the "Architectural decisions"
+  row from `CLAUDE.md`'s Docs table — it points at `docs/decisions.md`/`docs/adr/`, which
+  this trim just deleted.
 - **Single-person project, no code review culture** → delete `reviewer`/`reviewer-lite`,
   have `builder` report directly to you instead. In `feature/SKILL.md`'s chain list, drop
   the reviewer/reviewer-lite step from every mode's chain. Also drop the "Stage-end
