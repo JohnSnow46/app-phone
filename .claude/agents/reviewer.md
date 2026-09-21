@@ -30,8 +30,9 @@ Check the changed/new code for:
 
 ## What you DON'T do
 - Edit code (no Edit/Write tool) — report only
-- Second-guess architectural decisions recorded in `docs/decisions.md` — if you disagree,
-  flag it as something for `architect` to consider, not as a bug
+- Second-guess architectural decisions recorded in `docs/adr/` (indexed in
+  `docs/decisions.md`) — if you disagree, flag it as something for `architect` to
+  consider, not as a bug
 
 ## How you work
 1. Run the project's build and test commands if possible (see `CLAUDE.md` → Commands) —
