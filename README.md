@@ -4,7 +4,7 @@ A reusable starter for new projects: a cost-tiered agent pipeline, an ADR-backed
 log, and a handful of skills — copy it in, fill in the placeholders, delete what doesn't
 apply.
 
-This isn't a from-scratch design. It's a synthesis of five sources, credited in detail
+This isn't a from-scratch design. It's a synthesis of six sources, credited in detail
 under [Attribution](#attribution):
 
 - **A real project** (a portfolio e-commerce app) — the tiered pipeline and ADR system,
