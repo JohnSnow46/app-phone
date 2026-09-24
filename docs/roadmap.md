@@ -1,0 +1,54 @@
+# Roadmap
+
+Concrete extension candidates for this starter template, based on gaps found by
+reviewing the current `.claude/agents/`, `.claude/skills/`, and `README.md`/`USAGE.md`.
+Each entry names the gap it closes — not a wishlist item.
+
+## 1. A real `dotnet` preset
+
+`README.md` currently tells .NET adopters to "fill in `CLAUDE.md`'s Commands/Global
+conventions/Environment sections yourself" and points at the external
+[dotnet-skills](https://github.com/Aaronontheweb/dotnet-skills) plugin — but no
+pre-filled `dotnet` variant of this template exists in-repo (an earlier commit removed a
+dangling reference to one that didn't exist). Add an actual `templates/dotnet/CLAUDE.md`
+with Commands/Global-conventions/Environment pre-filled for a typical
+Clean-Architecture .NET solution (`dotnet build`/`test`/`ef migrations`), so a .NET
+adopter copies a working file instead of starting from bracketed placeholders.
+
+## 2. A CI workflow template per stack
+
+Nothing in this starter addresses continuous integration — `USAGE.md`'s walkthrough
+stops at local commits. Add `templates/ci/dotnet.yml` and `templates/ci/node.yml`
+(minimal GitHub Actions: install → build → test on push/PR) that an adopter copies into
+`.github/workflows/`, referenced from `USAGE.md` step 2 alongside the `settings.json`
+permission setup. Closes the gap between "cost-tiered agent pipeline" and having any
+automated check that the pipeline's output actually passes.
+
+## 3. A `pr-description` skill
+
+The `commit` skill stops at a local commit ("Staging/committing once reviewer/
+reviewer-lite gives a ready-to-merge verdict"), but this template's own real-world
+origin project (and at least one adopter — see `TrainingApp`) uses a GitHub PR review
+flow, not local-diff review. Add a user-invoked `pr-description` skill that drafts a PR
+title/summary/test-plan from the branch's commits and diff, the same way `commit`
+drafts a commit message from the staged diff — closes the pipeline gap between
+`reviewer` approval and opening the PR.
+
+## 4. Bucket folders for skills, and a human-facing doc per skill
+
+Both already named in `README.md`'s "Options not built into this starter" as
+deliberately deferred, not rejected — promoting them from "noted" to "implemented as an
+opt-in template variant" once a real adopter repo outgrows a flat `.claude/skills/`
+list or a README skills table. Concretely: a `templates/skills-bucketed/` example
+layout (`engineering/`, `personal/`, `misc/`, `deprecated/`) and a
+`templates/docs/skills/<name>.md` mirror example, both referenced from `USAGE.md`
+section 5 as "if you outgrow the starter" pointers instead of prose-only mentions.
+
+## 5. A `changelog` skill for tagged releases
+
+There's a `commit` skill (working tree → commit) and (proposal 3) a `pr-description`
+skill (branch → PR), but nothing covers the next step adopters doing versioned releases
+will need: turning a range of merged commits into `CHANGELOG.md` entries grouped by
+type (feat/fix/refactor), keyed off the same Conventional Commits prefixes `commit`
+already enforces. User-invoked, mirrors `commit`'s "side effect you want to control"
+rationale from README's model-invoked-vs-user-invoked section.
