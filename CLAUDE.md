@@ -104,26 +104,35 @@ Delete this section if the project has none yet.]
 
 ## Global conventions
 
-- [Naming, nullability/typing defaults, async conventions, error-handling pattern —
-  whatever differs from the language/framework default.]
-- [Module structure: one handler/component = one file = one test, if that's the
-  convention.]
-- [Test naming convention, e.g. `MethodName_Scenario_ExpectedResult`.]
+- Nullable reference types enabled. Async/await for all I/O; thread `CancellationToken`
+  through call chains.
+- Clean Architecture layering — `Domain` (entities, invariants) → `Application` (use
+  cases/handlers, validation) → `Infrastructure` (EF Core, external clients) → `Api`
+  (controllers, wiring). Dependencies point inward only; adjust the layer list here if
+  this project doesn't use all four.
+- One handler/validator = one file = one unit test.
+- Test naming: `MethodName_Scenario_ExpectedResult` (xUnit).
+- Domain exceptions inherit one common base, mapped to HTTP status codes by a single
+  exception-handling middleware — not per-controller try/catch.
 
 ## Commands
 
 ```bash
-[install]
-[test]
-[lint/typecheck]
-[build]
-[run/dev]
+dotnet restore
+dotnet build
+dotnet test
+dotnet format --verify-no-changes
+dotnet run --project src/<ProjectName>.Api
+dotnet ef migrations add <Name> --project src/<ProjectName>.Infrastructure --startup-project src/<ProjectName>.Api
+dotnet ef database update --project src/<ProjectName>.Infrastructure --startup-project src/<ProjectName>.Api
 ```
 
 ## Environment
 
-[Editor/IDE, review process (local diff vs GitHub/GitLab PRs), CI setup, anything about
-the dev environment Claude can't infer from the repo.]
+[Editor/IDE and review process (local diff vs GitHub/GitLab PRs) — fill in for this
+project.] CI: GitHub Actions running `dotnet build` and `dotnet test` on push/PR is a
+reasonable default for a solo/portfolio .NET project; adjust once the project has a real
+pipeline.
 
 ---
 
