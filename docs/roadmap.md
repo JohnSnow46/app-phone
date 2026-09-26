@@ -4,16 +4,14 @@ Concrete extension candidates for this starter template, based on gaps found by
 reviewing the current `.claude/agents/`, `.claude/skills/`, and `README.md`/`USAGE.md`.
 Each entry names the gap it closes — not a wishlist item.
 
-## 1. A real `dotnet` preset
+## 1. A real `dotnet` preset — ✅ Done
 
-`README.md` currently tells .NET adopters to "fill in `CLAUDE.md`'s Commands/Global
-conventions/Environment sections yourself" and points at the external
-[dotnet-skills](https://github.com/Aaronontheweb/dotnet-skills) plugin — but no
-pre-filled `dotnet` variant of this template exists in-repo (an earlier commit removed a
-dangling reference to one that didn't exist). Add an actual `templates/dotnet/CLAUDE.md`
-with Commands/Global-conventions/Environment pre-filled for a typical
-Clean-Architecture .NET solution (`dotnet build`/`test`/`ef migrations`), so a .NET
-adopter copies a working file instead of starting from bracketed placeholders.
+Implemented differently than originally proposed here: this repo has no `templates/`
+folder convention (single flat starter, no precedent for template subfolders), so the
+preset shipped as a dedicated `dotnet` branch with `CLAUDE.md`'s Commands/Global
+conventions/Environment sections pre-filled for a typical Clean-Architecture .NET
+solution, rather than a `templates/dotnet/CLAUDE.md` file on `master`. `README.md` now
+points .NET adopters at that branch.
 
 ## 2. A CI workflow template per stack
 
