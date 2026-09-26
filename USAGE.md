@@ -140,8 +140,9 @@ table as something to tune, not something to leave as-is forever.
 
 ## 4. Working with skills
 
-- `commit` and `feature` are user-invoked — type `/commit` or `/feature <task>` yourself.
-  Claude won't run either on its own.
+- `commit`, `feature`, and `pr-description` are user-invoked — type `/commit`,
+  `/feature <task>`, or `/pr-description` yourself. Claude won't run any of them on its
+  own.
 - `writing-skills` and `verification-before-completion` are model-invoked — Claude loads
   them automatically when relevant. You can also invoke either directly (e.g.
   `/writing-skills`) to force a read.

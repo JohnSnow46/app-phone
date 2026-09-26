@@ -22,15 +22,13 @@ stops at local commits. Add `templates/ci/dotnet.yml` and `templates/ci/node.yml
 permission setup. Closes the gap between "cost-tiered agent pipeline" and having any
 automated check that the pipeline's output actually passes.
 
-## 3. A `pr-description` skill
+## 3. A `pr-description` skill — ✅ Done
 
-The `commit` skill stops at a local commit ("Staging/committing once reviewer/
-reviewer-lite gives a ready-to-merge verdict"), but this template's own real-world
-origin project (and at least one adopter — see `TrainingApp`) uses a GitHub PR review
-flow, not local-diff review. Add a user-invoked `pr-description` skill that drafts a PR
-title/summary/test-plan from the branch's commits and diff, the same way `commit`
-drafts a commit message from the staged diff — closes the pipeline gap between
-`reviewer` approval and opening the PR.
+Added `.claude/skills/pr-description/`: user-invoked (`disable-model-invocation: true`,
+matching `commit`'s classification rationale), drafts a PR title/summary/test-plan from
+`git log`/`git diff` against the base branch and opens it with `gh pr create` — closes
+the pipeline gap between `reviewer` approval and opening the PR. Referenced in
+`README.md`'s skills table and `USAGE.md` section 4.
 
 ## 4. Bucket folders for skills, and a human-facing doc per skill
 
