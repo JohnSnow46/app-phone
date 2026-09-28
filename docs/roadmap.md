@@ -40,11 +40,10 @@ layout (`engineering/`, `personal/`, `misc/`, `deprecated/`) and a
 `templates/docs/skills/<name>.md` mirror example, both referenced from `USAGE.md`
 section 5 as "if you outgrow the starter" pointers instead of prose-only mentions.
 
-## 5. A `changelog` skill for tagged releases
+## 5. A `changelog` skill for tagged releases — ✅ Done
 
-There's a `commit` skill (working tree → commit) and (proposal 3) a `pr-description`
-skill (branch → PR), but nothing covers the next step adopters doing versioned releases
-will need: turning a range of merged commits into `CHANGELOG.md` entries grouped by
-type (feat/fix/refactor), keyed off the same Conventional Commits prefixes `commit`
-already enforces. User-invoked, mirrors `commit`'s "side effect you want to control"
-rationale from README's model-invoked-vs-user-invoked section.
+Added `.claude/skills/changelog/`: user-invoked (`disable-model-invocation: true`),
+turns a commit range (last tag → HEAD, or a user-given starting point) into
+`CHANGELOG.md` entries grouped by Conventional Commits prefix — the next step after
+`commit`/`pr-description` for adopters doing versioned releases. Referenced in
+`README.md`'s skills table and `USAGE.md` section 4.
