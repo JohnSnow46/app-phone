@@ -99,6 +99,22 @@ stack's actual command in place of the example below:
 Swap `npx prettier --write .` for your stack's format/lint-on-save command (e.g. `ruff
 format .`, `gofmt -w .`).
 
+## 2c. Add CI (optional)
+
+Nothing above wires up continuous integration — the pipeline gets you to a green local
+`build`/`test`, but nothing checks that on push/PR until you add it. `templates/ci/`
+has minimal GitHub Actions starting points: `dotnet.yml` (restore → build → test) and
+`node.yml` (`npm ci` → build → test). Copy whichever matches your stack into
+`.github/workflows/`, fill in the bracketed version, and commit it:
+
+```bash
+mkdir -p .github/workflows
+cp templates/ci/dotnet.yml .github/workflows/ci.yml   # or templates/ci/node.yml
+```
+
+Skip this step if the project already has CI, or if a later stage of your pipeline will
+set it up deliberately (e.g. as part of a "delivery" ETAP with its own ADR).
+
 ## 3. Try the pipeline on a real task
 
 Two ways to trigger the pipeline:

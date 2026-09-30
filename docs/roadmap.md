@@ -13,14 +13,14 @@ conventions/Environment sections pre-filled for a typical Clean-Architecture .NE
 solution, rather than a `templates/dotnet/CLAUDE.md` file on `master`. `README.md` now
 points .NET adopters at that branch.
 
-## 2. A CI workflow template per stack
+## 2. A CI workflow template per stack — ✅ Done
 
-Nothing in this starter addresses continuous integration — `USAGE.md`'s walkthrough
-stops at local commits. Add `templates/ci/dotnet.yml` and `templates/ci/node.yml`
-(minimal GitHub Actions: install → build → test on push/PR) that an adopter copies into
-`.github/workflows/`, referenced from `USAGE.md` step 2 alongside the `settings.json`
-permission setup. Closes the gap between "cost-tiered agent pipeline" and having any
-automated check that the pipeline's output actually passes.
+Added `templates/ci/dotnet.yml` (restore → build → test) and `templates/ci/node.yml`
+(`npm ci` → build → test) — minimal GitHub Actions an adopter copies into
+`.github/workflows/`. Referenced from a new `USAGE.md` step "2c. Add CI (optional)",
+right after the `settings.json` permission setup and before "try the pipeline". Closes
+the gap between "cost-tiered agent pipeline" and having any automated check that the
+pipeline's output actually passes.
 
 ## 3. A `pr-description` skill — ✅ Done
 
