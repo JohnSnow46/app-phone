@@ -98,6 +98,7 @@ still gets the most capable model your plan allows, it just won't be a tier abov
 | `commit` | User-invoked (`disable-model-invocation: true`) | Staging/committing once `reviewer`/`reviewer-lite` gives a ready-to-merge verdict |
 | `pr-description` | User-invoked (`disable-model-invocation: true`) | Drafts a PR title/summary/test-plan from the branch's commits+diff, then opens it — the branch→PR analog of `commit` |
 | `changelog` | User-invoked (`disable-model-invocation: true`) | Turns a range of merged commits into grouped `CHANGELOG.md` entries when cutting a tagged release |
+| `security-audit` | User-invoked (`disable-model-invocation: true`) | Runs `dotnet list package --vulnerable` / `npm audit` and summarizes findings by severity; reports only, never upgrades |
 | `writing-tests` | User-invoked for now (`disable-model-invocation: true`) — flip to model-invoked once filled in | Background conventions for writing/fixing tests |
 | `project-conventions` | User-invoked for now (`disable-model-invocation: true`) — flip to model-invoked once filled in | Detailed conventions too long for `CLAUDE.md` |
 | `writing-skills` | Model-invoked | Reference for authoring this repo's own skills/agents well |
@@ -166,7 +167,7 @@ you outgrow the starter:
 
 - **Bucket folders for skills** (`engineering/`, `personal/`, `misc/`, `deprecated/`, per
   mattpocock/skills) — worth it once you have more than a handful of skills and need to
-  separate promoted ones from drafts/retired ones. Not needed at 8 skills.
+  separate promoted ones from drafts/retired ones. Not needed at 9 skills.
 - **A human-facing doc per skill** (`docs/skills/<name>.md`, per compound-engineering-plugin
   and mattpocock/skills) — a mirror of each `SKILL.md` written for people browsing docs
   rather than for the model. Worth it once your skill count makes the README table

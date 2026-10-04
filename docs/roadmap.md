@@ -48,7 +48,7 @@ turns a commit range (last tag → HEAD, or a user-given starting point) into
 `commit`/`pr-description` for adopters doing versioned releases. Referenced in
 `README.md`'s skills table and `USAGE.md` section 4.
 
-## 6. A `security-audit` skill
+## 6. A `security-audit` skill — ✅ Done
 
 Gap: the new `templates/ci/{dotnet,node}.yml` (item 2) check that code builds and
 tests pass, but nothing in the pipeline checks for known-vulnerable dependencies.
@@ -56,6 +56,10 @@ User-invoked, runs the stack's native audit command (`dotnet list package
 --vulnerable` / `npm audit`), summarizes findings by severity, and stops there — no
 auto-upgrade, since bumping a dependency can break the build and that's `builder`'s
 job, not this skill's.
+
+Added `.claude/skills/security-audit/`: user-invoked (`disable-model-invocation: true`),
+runs the native audit for the detected stack and summarizes by severity. Reports only, never
+upgrades. Listed in `README.md`'s skills table and `USAGE.md` section 4.
 
 ## 7. A `coverage-gap` skill
 
@@ -83,7 +87,7 @@ reference them from the same `USAGE.md` "2c. Add CI (optional)" step.
 
 ## 10. A lightweight eval check for this template's own agents/skills
 
-Gap: this repo ships 7 agents + 8 skills but has no check that they still behave as
+Gap: this repo ships 7 agents + 9 skills but has no check that they still behave as
 documented as the template evolves — prompt drift (an edited `SKILL.md` that silently
 stops triggering, or an agent whose `tools:` list falls out of sync with what it
 actually needs) would only surface when a real adopter session breaks. A small,
