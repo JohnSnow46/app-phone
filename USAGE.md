@@ -159,8 +159,8 @@ table as something to tune, not something to leave as-is forever.
 
 ## 4. Working with skills
 
-- `commit`, `feature`, `pr-description`, `changelog`, and `security-audit` are user-invoked — type
-  `/commit`, `/feature <task>`, `/pr-description`, `/changelog`, or `/security-audit` yourself. Claude won't
+- `commit`, `feature`, `pr-description`, `changelog`, `security-audit`, and `coverage-gap` are user-invoked — type
+  `/commit`, `/feature <task>`, `/pr-description`, `/changelog`, `/security-audit`, or `/coverage-gap` yourself. Claude won't
   run any of them on its own.
 - `writing-skills` and `verification-before-completion` are model-invoked — Claude loads
   them automatically when relevant. You can also invoke either directly (e.g.

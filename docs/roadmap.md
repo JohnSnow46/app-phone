@@ -61,7 +61,12 @@ Added `.claude/skills/security-audit/`: user-invoked (`disable-model-invocation:
 runs the native audit for the detected stack and summarizes by severity. Reports only, never
 upgrades. Listed in `README.md`'s skills table and `USAGE.md` section 4.
 
-## 7. A `coverage-gap` skill
+## 7. A `coverage-gap` skill — ✅ Done
+
+Added `.claude/skills/coverage-gap/`: user-invoked (`disable-model-invocation: true`). Given a
+file or directory, it lists production files with no matching test and drafts the missing
+test from the nearest sibling's structure, only for the gaps the user confirms. Listed in
+`README.md`'s skills table and `USAGE.md` section 4.
 
 Gap: `writing-tests` teaches *how* to write a good test once you're already writing
 one; nothing here helps find *what's* untested. User-invoked: given a changed file or
@@ -91,7 +96,7 @@ reference them from the same `USAGE.md` "2c. Add CI (optional)" step.
 
 ## 10. A lightweight eval check for this template's own agents/skills
 
-Gap: this repo ships 7 agents + 9 skills but has no check that they still behave as
+Gap: this repo ships 7 agents + 10 skills but has no check that they still behave as
 documented as the template evolves — prompt drift (an edited `SKILL.md` that silently
 stops triggering, or an agent whose `tools:` list falls out of sync with what it
 actually needs) would only surface when a real adopter session breaks. A small,
