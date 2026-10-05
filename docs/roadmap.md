@@ -78,7 +78,11 @@ adopter still bumps the version file(s) and tags by hand. Chains: run `changelog
 bump version (project-type-specific: `.csproj`/`package.json`) → `git tag` → push tag.
 User-invoked, same trailer/attribution conventions as `commit`.
 
-## 9. A GitLab CI template alongside the GitHub Actions ones
+## 9. A GitLab CI template alongside the GitHub Actions ones — ✅ Done
+
+Added `templates/ci/dotnet.gitlab-ci.yml` and `templates/ci/node.gitlab-ci.yml`, mirroring
+the GitHub restore/build/test (or `npm ci`/build/test) stages with the same PR and `main`
+triggers. `USAGE.md` section 2c points GitLab adopters at them.
 
 Gap: `templates/ci/{dotnet,node}.yml` (item 2) are GitHub Actions syntax only;
 an adopter on GitLab has nothing to copy. Add `templates/ci/dotnet.gitlab-ci.yml` and

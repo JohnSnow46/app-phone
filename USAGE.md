@@ -112,6 +112,9 @@ mkdir -p .github/workflows
 cp templates/ci/dotnet.yml .github/workflows/ci.yml   # or templates/ci/node.yml
 ```
 
+On GitLab, copy the matching `*.gitlab-ci.yml` to `.gitlab-ci.yml` at the repo root instead
+(`cp templates/ci/dotnet.gitlab-ci.yml .gitlab-ci.yml`) and fill in the bracketed image version.
+
 Skip this step if the project already has CI, or if a later stage of your pipeline will
 set it up deliberately (e.g. as part of a "delivery" ETAP with its own ADR).
 

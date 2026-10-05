@@ -1,0 +1,13 @@
+image: mcr.microsoft.com/dotnet/sdk:[YOUR .NET VERSION, e.g. 8.0]
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
+
+build-and-test:
+  stage: test
+  script:
+    - dotnet restore
+    - dotnet build --no-restore --configuration Release
+    - dotnet test --no-build --configuration Release

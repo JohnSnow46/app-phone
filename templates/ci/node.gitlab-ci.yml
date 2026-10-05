@@ -1,0 +1,19 @@
+image: node:[YOUR NODE VERSION, e.g. 20]
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
+
+build-and-test:
+  stage: test
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules/
+  script:
+    - npm ci
+    - npm run build
+    - npm test
