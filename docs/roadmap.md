@@ -76,7 +76,12 @@ following the nearest sibling's structure — same "find an existing test and fo
 shape" discipline `writing-tests` already prescribes, just aimed at the gap instead of
 the new code.
 
-## 8. A `release` skill
+## 8. A `release` skill — ✅ Done
+
+Added `.claude/skills/release/`: user-invoked (`disable-model-invocation: true`). Runs the
+changelog entry, bumps the `.csproj`/`package.json` version (never invents one), commits and
+creates an annotated tag. It stops before pushing and pushes only after explicit confirmation.
+Listed in `README.md`'s skills table and `USAGE.md` section 4.
 
 Gap: `changelog` writes `CHANGELOG.md` from a commit range but stops there — an
 adopter still bumps the version file(s) and tags by hand. Chains: run `changelog` →
@@ -96,7 +101,7 @@ reference them from the same `USAGE.md` "2c. Add CI (optional)" step.
 
 ## 10. A lightweight eval check for this template's own agents/skills
 
-Gap: this repo ships 7 agents + 10 skills but has no check that they still behave as
+Gap: this repo ships 7 agents + 11 skills but has no check that they still behave as
 documented as the template evolves — prompt drift (an edited `SKILL.md` that silently
 stops triggering, or an agent whose `tools:` list falls out of sync with what it
 actually needs) would only surface when a real adopter session breaks. A small,
