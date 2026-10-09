@@ -109,3 +109,13 @@ version-controlled set of fixture prompts + expected-behavior assertions per
 agent/skill (run manually via `claude plugin eval` or similar, not full CI) would
 catch this before it ships. Biggest of the open items here — needs its own ADR-lite
 plan before implementation, not a same-session fast-mode task.
+
+## 11. A GitHub PR template — ✅ Done
+
+Gap: the `pr-description` skill writes a Summary/Test plan body when it opens a PR, but
+nothing gave that same shape to a PR opened by hand (pushing and clicking "Compare &
+pull request" on GitHub directly) — a manually-opened PR just got GitHub's blank
+compose box. Added `templates/PULL_REQUEST_TEMPLATE.md` (same Summary/Test plan shape
+the skill already produces) and `USAGE.md` section 2d ("Add a PR template (optional)"),
+mirroring the existing `templates/ci/` copy-in pattern. GitHub-specific by design — a
+GitLab merge-request description template is a separate convention, left out.

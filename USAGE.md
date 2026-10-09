@@ -118,6 +118,22 @@ On GitLab, copy the matching `*.gitlab-ci.yml` to `.gitlab-ci.yml` at the repo r
 Skip this step if the project already has CI, or if a later stage of your pipeline will
 set it up deliberately (e.g. as part of a "delivery" ETAP with its own ADR).
 
+## 2d. Add a PR template (optional)
+
+`templates/PULL_REQUEST_TEMPLATE.md` has the same Summary/Test plan shape the
+`pr-description` skill already writes (`.claude/skills/pr-description/SKILL.md`) —
+adding it gives a manually-opened PR (someone pushing straight from their own
+`git`/GitHub UI, not through the skill) the same shape instead of a blank box:
+
+```bash
+mkdir -p .github
+cp templates/PULL_REQUEST_TEMPLATE.md .github/PULL_REQUEST_TEMPLATE.md
+```
+
+Skip this step if the project already has a PR template, or your host isn't GitHub
+(GitLab's equivalent is a merge request description template, a separate convention not
+covered here).
+
 ## 3. Try the pipeline on a real task
 
 Two ways to trigger the pipeline:
