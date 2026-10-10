@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # .NET (NuGet) — delete this block if the project isn't .NET.
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"
+
+  # Node (npm) — delete this block if the project isn't Node.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"
+
+  # GitHub Actions — keeps the workflows in templates/ci/ (or wherever you copied them)
+  # themselves up to date (e.g. actions/checkout, actions/setup-dotnet). Safe to keep
+  # even if you deleted one of the ecosystem blocks above.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"

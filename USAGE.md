@@ -134,6 +134,22 @@ Skip this step if the project already has a PR template, or your host isn't GitH
 (GitLab's equivalent is a merge request description template, a separate convention not
 covered here).
 
+## 2e. Add automated dependency updates (optional)
+
+`security-audit` (`.claude/skills/security-audit/SKILL.md`) runs the stack's native
+vulnerability audit on request, but only on request — it reports, it never upgrades, and
+nobody opens a PR until someone remembers to ask. `templates/dependabot.yml` closes the
+other half: GitHub's own Dependabot opens a PR per outdated dependency on a schedule, for
+NuGet/npm/GitHub Actions. Copy it in, delete whichever ecosystem block doesn't apply, and
+fill in the bracketed schedule:
+
+```bash
+cp templates/dependabot.yml .github/dependabot.yml
+```
+
+Skip this step if the project already has dependency-update automation (Dependabot,
+Renovate, or similar), or if you'd rather keep upgrades fully manual via `security-audit`.
+
 ## 3. Try the pipeline on a real task
 
 Two ways to trigger the pipeline:

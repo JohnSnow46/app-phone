@@ -119,3 +119,14 @@ compose box. Added `templates/PULL_REQUEST_TEMPLATE.md` (same Summary/Test plan 
 the skill already produces) and `USAGE.md` section 2d ("Add a PR template (optional)"),
 mirroring the existing `templates/ci/` copy-in pattern. GitHub-specific by design — a
 GitLab merge-request description template is a separate convention, left out.
+
+## 12. A Dependabot template for automated dependency updates — ✅ Done
+
+Gap: `security-audit` (item 6) runs the stack's native vulnerability audit, but only on
+request, and it never opens a PR — an adopter still has to remember to run it and bump
+versions by hand. Nothing in `templates/`, `README.md` or `USAGE.md` mentioned
+Dependabot/Renovate at all. Added `templates/dependabot.yml` (nuget + npm + github-actions
+ecosystems, each with a bracketed schedule placeholder — delete whichever ecosystem
+block doesn't apply) and `USAGE.md` section 2e ("Add automated dependency updates
+(optional)"), mirroring the existing `templates/ci/` copy-in pattern. Closes the natural
+pair with `security-audit`: manual audit on request, automated PRs on a schedule.
