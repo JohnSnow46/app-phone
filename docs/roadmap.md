@@ -30,15 +30,15 @@ matching `commit`'s classification rationale), drafts a PR title/summary/test-pl
 the pipeline gap between `reviewer` approval and opening the PR. Referenced in
 `README.md`'s skills table and `USAGE.md` section 4.
 
-## 4. Bucket folders for skills, and a human-facing doc per skill
+## 4. Bucket folders for skills, and a human-facing doc per skill — ✅ Done
 
-Both already named in `README.md`'s "Options not built into this starter" as
-deliberately deferred, not rejected — promoting them from "noted" to "implemented as an
-opt-in template variant" once a real adopter repo outgrows a flat `.claude/skills/`
-list or a README skills table. Concretely: a `templates/skills-bucketed/` example
-layout (`engineering/`, `personal/`, `misc/`, `deprecated/`) and a
-`templates/docs/skills/<name>.md` mirror example, both referenced from `USAGE.md`
-section 5 as "if you outgrow the starter" pointers instead of prose-only mentions.
+Added `templates/skills-bucketed/README.md` (target `engineering/`/`personal/`/`misc/`/
+`deprecated/` layout + `git mv` migration steps, no `SKILL.md` edits needed) and
+`templates/docs/skills/commit.md` (a worked human-facing mirror of
+`.claude/skills/commit/SKILL.md`). Referenced from `README.md`'s "Options not built
+into this starter" and a new `USAGE.md` section 4b, replacing the prose-only mentions.
+Neither adopted into this repo's own `.claude/skills/` — not needed at 11 skills, per
+both new files' own "not needed yet" notes.
 
 ## 5. A `changelog` skill for tagged releases — ✅ Done
 

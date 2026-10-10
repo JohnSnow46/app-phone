@@ -189,6 +189,23 @@ table as something to tune, not something to leave as-is forever.
 - If a model-invoked skill never seems to fire when it should, its `description` is
   probably too generic — see the `writing-skills` skill for how to fix that.
 
+## 4b. Growing beyond a flat skills list (optional)
+
+Two patterns from `README.md`'s "Options not built into this starter" as copy-in
+template variants, once a real adopter repo outgrows what's built by default here:
+
+- **Bucket folders** once you have more skills than fit comfortably in one flat
+  `.claude/skills/` listing, or need to separate promoted skills from drafts/retired
+  ones: `templates/skills-bucketed/README.md` has the target layout and the `git mv`
+  migration steps (no `SKILL.md` edits needed — Claude Code discovers a skill by its
+  `SKILL.md`, at any folder depth, not by its path).
+- **A human-facing doc per skill** once the README's skills table gets too cramped to
+  explain *why* a skill exists, not just that it does: `templates/docs/skills/commit.md`
+  is a worked example mirroring `.claude/skills/commit/SKILL.md` — copy its shape for
+  your own skills under `docs/skills/`.
+
+Neither is needed at this starter's own scale (11 skills, one short table row each).
+
 ## 5. Growing the docs system
 
 Once you have a real architectural decision to record:

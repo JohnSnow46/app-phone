@@ -165,15 +165,17 @@ Or just delegate to `prompt-engineer`, which applies those rules for you.
 ## Options not built into this starter
 
 Two patterns came up in research but aren't included by default — cheap to add later if
-you outgrow the starter:
+you outgrow the starter. Both ship as opt-in template variants rather than prose-only
+mentions; see `USAGE.md` section 4b for when to actually adopt them:
 
 - **Bucket folders for skills** (`engineering/`, `personal/`, `misc/`, `deprecated/`, per
   mattpocock/skills) — worth it once you have more than a handful of skills and need to
-  separate promoted ones from drafts/retired ones. Not needed at 11 skills.
+  separate promoted ones from drafts/retired ones. Not needed at 11 skills. Example
+  layout + migration steps: `templates/skills-bucketed/README.md`.
 - **A human-facing doc per skill** (`docs/skills/<name>.md`, per compound-engineering-plugin
   and mattpocock/skills) — a mirror of each `SKILL.md` written for people browsing docs
   rather than for the model. Worth it once your skill count makes the README table
-  unwieldy.
+  unwieldy. Example mirror of the `commit` skill: `templates/docs/skills/commit.md`.
 
 ## Attribution
 
