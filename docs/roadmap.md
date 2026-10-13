@@ -130,3 +130,14 @@ ecosystems, each with a bracketed schedule placeholder — delete whichever ecos
 block doesn't apply) and `USAGE.md` section 2e ("Add automated dependency updates
 (optional)"), mirroring the existing `templates/ci/` copy-in pattern. Closes the natural
 pair with `security-audit`: manual audit on request, automated PRs on a schedule.
+
+## 13. A GitLab merge request template alongside the GitHub PR one — ✅ Done
+
+Gap: item 11 added `templates/PULL_REQUEST_TEMPLATE.md` but explicitly left out a GitLab
+equivalent ("a GitLab merge-request description template is a separate convention, left
+out") — the same gap item 9 already closed for CI templates (GitHub Actions vs. GitLab
+CI) was still open for the PR/MR template. Added `templates/MERGE_REQUEST_TEMPLATE.md`
+(identical Summary/Test plan shape) and extended `USAGE.md` section 2d with the GitLab
+copy-in step — `.gitlab/merge_request_templates/Default.md`, GitLab's naming convention
+for the template auto-selected on a new MR, mirroring how 2c already handles the
+GitHub/GitLab CI split.

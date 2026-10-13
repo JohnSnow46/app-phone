@@ -130,9 +130,17 @@ mkdir -p .github
 cp templates/PULL_REQUEST_TEMPLATE.md .github/PULL_REQUEST_TEMPLATE.md
 ```
 
-Skip this step if the project already has a PR template, or your host isn't GitHub
-(GitLab's equivalent is a merge request description template, a separate convention not
-covered here).
+On GitLab, copy `templates/MERGE_REQUEST_TEMPLATE.md` to
+`.gitlab/merge_request_templates/Default.md` instead — same Summary/Test plan shape,
+GitLab's naming convention for the template that's selected by default on a new merge
+request:
+
+```bash
+mkdir -p .gitlab/merge_request_templates
+cp templates/MERGE_REQUEST_TEMPLATE.md .gitlab/merge_request_templates/Default.md
+```
+
+Skip this step if the project already has a PR/MR template.
 
 ## 2e. Add automated dependency updates (optional)
 
