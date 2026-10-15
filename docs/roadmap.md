@@ -141,3 +141,13 @@ CI) was still open for the PR/MR template. Added `templates/MERGE_REQUEST_TEMPLA
 copy-in step — `.gitlab/merge_request_templates/Default.md`, GitLab's naming convention
 for the template auto-selected on a new MR, mirroring how 2c already handles the
 GitHub/GitLab CI split.
+
+## 14. A Renovate config alongside the GitHub-only Dependabot template — ✅ Done
+
+Gap: item 12 added `templates/dependabot.yml`, but Dependabot itself is a GitHub-only
+feature — the same "GitHub thing exists, GitLab has nothing to copy" gap items 9 and 13
+already closed for CI templates and the PR/MR template was still open for dependency
+updates. Added `templates/renovate.json` (NuGet/npm/GitHub Actions managers, same
+bracketed-schedule placeholder convention as `dependabot.yml`) — Renovate runs natively
+on GitLab (hosted integration or a scheduled CI job), unlike Dependabot. Extended
+`USAGE.md` section 2e with the Renovate copy-in step right after the Dependabot one.

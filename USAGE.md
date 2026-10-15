@@ -155,6 +155,15 @@ fill in the bracketed schedule:
 cp templates/dependabot.yml .github/dependabot.yml
 ```
 
+Dependabot itself is GitHub-only. On GitLab (or if you'd rather not depend on a
+GitHub-specific feature at all), use `templates/renovate.json` instead — Renovate covers
+the same NuGet/npm/GitHub Actions ecosystems and runs natively on GitLab, either through
+its hosted GitLab integration or a scheduled CI job:
+
+```bash
+cp templates/renovate.json renovate.json
+```
+
 Skip this step if the project already has dependency-update automation (Dependabot,
 Renovate, or similar), or if you'd rather keep upgrades fully manual via `security-audit`.
 

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // Renovate (not GitHub-specific like templates/dependabot.yml) -- works natively on
+  // GitLab too, either via the hosted GitLab integration or a scheduled CI job running
+  // `renovate` against this repo. Fill in the bracketed schedule below.
+  "extends": ["config:recommended"],
+  "schedule": ["[YOUR SCHEDULE, e.g. before 6am on monday]"],
+  // Delete this block if the project isn't .NET -- keeps NuGet references current.
+  "nuget": {
+    "enabled": true
+  },
+  // Delete this block if the project isn't Node -- keeps npm dependencies current.
+  "npm": {
+    "enabled": true
+  },
+  // Keeps the workflows in templates/ci/ (or wherever you copied them) themselves up
+  // to date (e.g. actions/checkout, actions/setup-dotnet). Safe to keep either way.
+  "github-actions": {
+    "enabled": true
+  }
+}
