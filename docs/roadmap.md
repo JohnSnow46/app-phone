@@ -142,6 +142,18 @@ copy-in step — `.gitlab/merge_request_templates/Default.md`, GitLab's naming c
 for the template auto-selected on a new MR, mirroring how 2c already handles the
 GitHub/GitLab CI split.
 
+## 15. GitHub issue templates (bug report + feature request) — ✅ Done
+
+Gap: item 11 gave a manually-opened PR the same Summary/Test plan shape the
+`pr-description` skill already produces, but a manually-reported bug or feature request
+still got GitHub's blank compose box, with nothing steering the reporter toward the
+details `debugger`/`architect-lite` would actually need to act on it. Added
+`templates/ISSUE_TEMPLATE/bug_report.md` (what happened / expected / repro steps /
+environment) and `templates/ISSUE_TEMPLATE/feature_request.md` (gap / proposed solution /
+alternatives considered) and `USAGE.md` section 2f. GitHub-specific by design, same as
+item 11 originally was — a GitLab `.gitlab/issue_templates/` equivalent is a separate
+convention, left out here.
+
 ## 14. A Renovate config alongside the GitHub-only Dependabot template — ✅ Done
 
 Gap: item 12 added `templates/dependabot.yml`, but Dependabot itself is a GitHub-only

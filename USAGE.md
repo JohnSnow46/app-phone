@@ -167,6 +167,25 @@ cp templates/renovate.json renovate.json
 Skip this step if the project already has dependency-update automation (Dependabot,
 Renovate, or similar), or if you'd rather keep upgrades fully manual via `security-audit`.
 
+## 2f. Add issue templates (optional)
+
+`templates/PULL_REQUEST_TEMPLATE.md` (2d) gives a manually-opened PR the same
+Summary/Test plan shape the `pr-description` skill already produces — but a manually
+*reported* bug or feature request still gets GitHub's blank compose box, with nothing
+steering the reporter toward the details `debugger`/`architect-lite` would actually need.
+`templates/ISSUE_TEMPLATE/bug_report.md` and `templates/ISSUE_TEMPLATE/feature_request.md`
+close that gap:
+
+```bash
+mkdir -p .github/ISSUE_TEMPLATE
+cp templates/ISSUE_TEMPLATE/*.md .github/ISSUE_TEMPLATE/
+```
+
+GitHub-specific by design, same as 2d's PR template originally was — a GitLab
+`.gitlab/issue_templates/` equivalent is a separate convention, left out here.
+
+Skip this step if the project already has issue templates.
+
 ## 3. Try the pipeline on a real task
 
 Two ways to trigger the pipeline:
