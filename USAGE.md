@@ -181,8 +181,15 @@ mkdir -p .github/ISSUE_TEMPLATE
 cp templates/ISSUE_TEMPLATE/*.md .github/ISSUE_TEMPLATE/
 ```
 
-GitHub-specific by design, same as 2d's PR template originally was — a GitLab
-`.gitlab/issue_templates/` equivalent is a separate convention, left out here.
+On GitLab, copy `templates/GITLAB_ISSUE_TEMPLATES/` into `.gitlab/issue_templates/`
+instead — same sections, but plain Markdown: GitLab issue templates don't read GitHub's
+YAML front matter, so each file ends with a `/label` quick action in its place, and the
+file name (`Bug`, `Feature`) is what shows up in GitLab's template picker:
+
+```bash
+mkdir -p .gitlab/issue_templates
+cp templates/GITLAB_ISSUE_TEMPLATES/*.md .gitlab/issue_templates/
+```
 
 Skip this step if the project already has issue templates.
 

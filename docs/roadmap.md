@@ -163,3 +163,13 @@ updates. Added `templates/renovate.json` (NuGet/npm/GitHub Actions managers, sam
 bracketed-schedule placeholder convention as `dependabot.yml`) — Renovate runs natively
 on GitLab (hosted integration or a scheduled CI job), unlike Dependabot. Extended
 `USAGE.md` section 2e with the Renovate copy-in step right after the Dependabot one.
+
+## 16. GitLab issue templates alongside the GitHub ones — ✅ Done
+
+Gap: item 15 added `templates/ISSUE_TEMPLATE/` and explicitly left out "a GitLab
+`.gitlab/issue_templates/` equivalent" — the same GitHub-only gap items 13 and 14 already
+closed for the PR/MR template and dependency updates. Added
+`templates/GITLAB_ISSUE_TEMPLATES/Bug.md` and `Feature.md` (identical sections to the
+GitHub pair) and the GitLab copy-in step in `USAGE.md` section 2f. GitLab issue templates
+ignore YAML front matter, so the GitHub `labels:` field became a trailing `/label` quick
+action instead.
