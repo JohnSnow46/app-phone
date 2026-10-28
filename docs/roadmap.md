@@ -173,3 +173,14 @@ closed for the PR/MR template and dependency updates. Added
 GitHub pair) and the GitLab copy-in step in `USAGE.md` section 2f. GitLab issue templates
 ignore YAML front matter, so the GitHub `labels:` field became a trailing `/label` quick
 action instead.
+
+## 17. Issue template chooser config (`config.yml`) — ✅ Done
+
+Gap: item 15's GitHub issue templates are only a suggestion while GitHub's chooser still
+shows "Open a blank issue" next to them — a reporter can skip both with one click, which
+undoes the point of steering them toward what `debugger`/`architect-lite` need. Added
+`templates/ISSUE_TEMPLATE/config.yml` (`blank_issues_enabled: false`, commented-out
+`contact_links` placeholder in the same bracketed style as `dependabot.yml`) and changed
+`USAGE.md` section 2f's copy step from `*.md` to `*` so it is actually picked up. GitLab
+has no per-repo equivalent, noted in 2f.
+

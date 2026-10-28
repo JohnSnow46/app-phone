@@ -1,0 +1,10 @@
+# GitHub's issue template chooser config. Without it, the chooser still offers an
+# "Open a blank issue" link next to bug_report.md/feature_request.md, so a reporter
+# can skip both templates entirely. Set to true if the project wants to keep that escape hatch.
+blank_issues_enabled: false
+
+# Optional: point questions/support requests somewhere other than the issue tracker.
+# contact_links:
+#   - name: Questions
+#     url: "[YOUR DISCUSSIONS URL, e.g. https://github.com/OWNER/REPO/discussions]"
+#     about: Ask and answer questions here instead of opening an issue.

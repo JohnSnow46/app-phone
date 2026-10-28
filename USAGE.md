@@ -178,8 +178,14 @@ close that gap:
 
 ```bash
 mkdir -p .github/ISSUE_TEMPLATE
-cp templates/ISSUE_TEMPLATE/*.md .github/ISSUE_TEMPLATE/
+cp templates/ISSUE_TEMPLATE/* .github/ISSUE_TEMPLATE/
 ```
+
+That copies `config.yml` too, which turns off GitHub's "Open a blank issue" link —
+otherwise a reporter can skip both templates with one click. Set
+`blank_issues_enabled: true` in it if you want to keep blank issues, or fill in its
+commented `contact_links` to send questions to Discussions instead of the issue tracker.
+GitLab has no per-repo equivalent (its template picker always allows "No template").
 
 On GitLab, copy `templates/GITLAB_ISSUE_TEMPLATES/` into `.gitlab/issue_templates/`
 instead — same sections, but plain Markdown: GitLab issue templates don't read GitHub's
