@@ -7,13 +7,15 @@ workflow:
 
 build-and-test:
   stage: test
+  # Cache npm's download cache, not node_modules/ -- `npm ci` deletes node_modules/ before
+  # installing, so a cached copy of it is thrown away on every run.
   cache:
     key:
       files:
         - package-lock.json
     paths:
-      - node_modules/
+      - .npm/
   script:
-    - npm ci
+    - npm ci --cache .npm --prefer-offline
     - npm run build
     - npm test

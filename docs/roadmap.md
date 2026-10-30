@@ -184,3 +184,12 @@ undoes the point of steering them toward what `debugger`/`architect-lite` need. 
 `USAGE.md` section 2f's copy step from `*.md` to `*` so it is actually picked up. GitLab
 has no per-repo equivalent, noted in 2f.
 
+## 18. GitLab Node CI template cached a directory `npm ci` deletes — ✅ Done
+
+Gap: item 9's `templates/ci/node.gitlab-ci.yml` cached `node_modules/` keyed on
+`package-lock.json`, but `npm ci` always removes `node_modules/` before installing, so the
+restored cache was discarded on every pipeline and every run re-downloaded all packages —
+the cache only cost upload/download time. Now caches npm's own download cache (`.npm/`,
+same lock-file key) and installs with `npm ci --cache .npm --prefer-offline`, GitLab's
+documented pattern for npm. The GitHub `node.yml` was already right (`setup-node`'s
+`cache: "npm"` caches the download cache, not `node_modules/`).
