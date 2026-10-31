@@ -193,3 +193,12 @@ the cache only cost upload/download time. Now caches npm's own download cache (`
 same lock-file key) and installs with `npm ci --cache .npm --prefer-offline`, GitLab's
 documented pattern for npm. The GitHub `node.yml` was already right (`setup-node`'s
 `cache: "npm"` caches the download cache, not `node_modules/`).
+
+## 19. GitHub CI templates let superseded runs keep going — ✅ Done
+
+Gap: item 2's `templates/ci/dotnet.yml` and `node.yml` had no `concurrency` block, so
+pushing three quick fixes to a PR branch ran three full build-and-test jobs side by side,
+and only the last one's result matters — the other two just burn runner minutes and
+queue time. Added `concurrency: ci-${{ github.ref }}` with `cancel-in-progress` on every
+ref except `refs/heads/main`, so a newer push to the same PR/branch cancels the older run
+while every commit that lands on `main` still gets its own complete run.
