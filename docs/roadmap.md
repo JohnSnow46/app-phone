@@ -202,3 +202,14 @@ and only the last one's result matters — the other two just burn runner minute
 queue time. Added `concurrency: ci-${{ github.ref }}` with `cancel-in-progress` on every
 ref except `refs/heads/main`, so a newer push to the same PR/branch cancels the older run
 while every commit that lands on `main` still gets its own complete run.
+
+## 20. .NET CI templates re-downloaded every NuGet package on each run — ✅ Done
+
+Gap: the Node templates cache npm's download cache (GitHub via `setup-node`'s `cache:`,
+GitLab since item 18), but neither `dotnet.yml` nor `dotnet.gitlab-ci.yml` cached
+anything, so every run's `dotnet restore` pulled every package from nuget.org again.
+GitHub: added an `actions/cache` step for `~/.nuget/packages` keyed on `**/*.csproj` +
+`Directory.Packages.props` (`setup-dotnet`'s own `cache:` needs `packages.lock.json`,
+which most projects don't commit). GitLab: `NUGET_PACKAGES` points restore at
+`.nuget/packages/` inside the project dir — the only place GitLab can cache — with a
+fixed `nuget` cache key, since restore just fills in whatever is missing.

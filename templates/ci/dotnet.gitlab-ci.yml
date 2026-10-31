@@ -5,8 +5,18 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == "main"
 
+variables:
+  # Restore into the project dir -- GitLab can only cache paths inside it.
+  NUGET_PACKAGES: "$CI_PROJECT_DIR/.nuget/packages"
+
 build-and-test:
   stage: test
+  # Keep the NuGet package folder between pipelines so restore doesn't re-download every
+  # package. A stale cache is harmless: restore just fetches whatever is missing.
+  cache:
+    key: nuget
+    paths:
+      - .nuget/packages/
   script:
     - dotnet restore
     - dotnet build --no-restore --configuration Release

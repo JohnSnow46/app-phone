@@ -21,6 +21,14 @@ jobs:
         with:
           dotnet-version: "[YOUR .NET VERSION, e.g. 8.0.x]"
 
+      # Keep the NuGet package folder between runs so restore doesn't re-download every
+      # package. Keyed on the project files, which is where package versions live.
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/Directory.Packages.props') }}
+          restore-keys: nuget-${{ runner.os }}-
+
       - name: Restore
         run: dotnet restore
 
