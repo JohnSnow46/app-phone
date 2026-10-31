@@ -4,6 +4,9 @@ workflow:
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == "main"
+      # Every commit on main gets a complete pipeline; never cancel one for a newer push.
+      auto_cancel:
+        on_new_commit: none
 
 variables:
   # Restore into the project dir -- GitLab can only cache paths inside it.
@@ -11,6 +14,8 @@ variables:
 
 build-and-test:
   stage: test
+  # A newer push to the same MR makes this run obsolete -- let GitLab cancel it.
+  interruptible: true
   # Keep the NuGet package folder between pipelines so restore doesn't re-download every
   # package. A stale cache is harmless: restore just fetches whatever is missing.
   cache:

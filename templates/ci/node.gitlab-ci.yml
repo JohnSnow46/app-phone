@@ -4,9 +4,14 @@ workflow:
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == "main"
+      # Every commit on main gets a complete pipeline; never cancel one for a newer push.
+      auto_cancel:
+        on_new_commit: none
 
 build-and-test:
   stage: test
+  # A newer push to the same MR makes this run obsolete -- let GitLab cancel it.
+  interruptible: true
   # Cache npm's download cache, not node_modules/ -- `npm ci` deletes node_modules/ before
   # installing, so a cached copy of it is thrown away on every run.
   cache:

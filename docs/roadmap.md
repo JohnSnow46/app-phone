@@ -213,3 +213,13 @@ GitHub: added an `actions/cache` step for `~/.nuget/packages` keyed on `**/*.csp
 which most projects don't commit). GitLab: `NUGET_PACKAGES` points restore at
 `.nuget/packages/` inside the project dir — the only place GitLab can cache — with a
 fixed `nuget` cache key, since restore just fills in whatever is missing.
+
+## 21. GitLab CI templates let superseded pipelines keep going — ✅ Done
+
+Gap: item 19 made the GitHub templates cancel a run once a newer push to the same PR
+arrives, but the GitLab pair still ran every pipeline to completion — GitLab's
+"auto-cancel redundant pipelines" setting is on by default, yet it only cancels jobs
+marked `interruptible`, and neither template marked any. Marked `build-and-test`
+`interruptible: true` in `dotnet.gitlab-ci.yml` and `node.gitlab-ci.yml`, and gave the
+`main` workflow rule `auto_cancel: on_new_commit: none` so, as on GitHub, every commit
+that lands on `main` still gets a complete pipeline (needs GitLab 16.10+).
