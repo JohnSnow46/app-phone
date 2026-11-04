@@ -12,6 +12,8 @@ build-and-test:
   stage: test
   # A newer push to the same MR makes this run obsolete -- let GitLab cancel it.
   interruptible: true
+  # Fail a hung test here instead of holding a runner until the project-wide limit (1h default).
+  timeout: 15 minutes
   # Cache npm's download cache, not node_modules/ -- `npm ci` deletes node_modules/ before
   # installing, so a cached copy of it is thrown away on every run.
   cache:

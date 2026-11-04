@@ -231,3 +231,11 @@ Gap: neither `templates/ci/dotnet.yml` nor `node.yml` set `permissions:`, so the
 across the board, for a job whose `npm ci`/`dotnet restore` runs third-party code. Both
 jobs only need to read the repo, so both templates now declare `contents: read`. A project
 that adds a step needing more (say, commenting on the PR) widens it there, on purpose.
+
+## 23. CI templates had no job time limit — ✅ Done
+
+Gap: none of the four templates capped how long `build-and-test` may run, so a test stuck
+on a deadlock or a dead connection held a runner until the platform default — 6 hours on
+GitHub, 1 hour on GitLab unless the project changed it. Added `timeout-minutes: 15` to
+`dotnet.yml`/`node.yml` and `timeout: 15 minutes` to the GitLab pair; a project with a
+slower suite raises the one number.

@@ -16,6 +16,8 @@ build-and-test:
   stage: test
   # A newer push to the same MR makes this run obsolete -- let GitLab cancel it.
   interruptible: true
+  # Fail a hung test here instead of holding a runner until the project-wide limit (1h default).
+  timeout: 15 minutes
   # Keep the NuGet package folder between pipelines so restore doesn't re-download every
   # package. A stale cache is harmless: restore just fetches whatever is missing.
   cache:

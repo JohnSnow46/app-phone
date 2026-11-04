@@ -19,6 +19,8 @@ permissions:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    # GitHub's default is 6 hours, so a hung test would burn runner minutes until then.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
