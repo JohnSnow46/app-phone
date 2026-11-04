@@ -223,3 +223,11 @@ marked `interruptible`, and neither template marked any. Marked `build-and-test`
 `interruptible: true` in `dotnet.gitlab-ci.yml` and `node.gitlab-ci.yml`, and gave the
 `main` workflow rule `auto_cancel: on_new_commit: none` so, as on GitHub, every commit
 that lands on `main` still gets a complete pipeline (needs GitLab 16.10+).
+
+## 22. GitHub CI templates inherited the repo's default token permissions — ✅ Done
+
+Gap: neither `templates/ci/dotnet.yml` nor `node.yml` set `permissions:`, so the
+`GITHUB_TOKEN` got whatever the repo or org default is — on older repos that's read/write
+across the board, for a job whose `npm ci`/`dotnet restore` runs third-party code. Both
+jobs only need to read the repo, so both templates now declare `contents: read`. A project
+that adds a step needing more (say, commenting on the PR) widens it there, on purpose.

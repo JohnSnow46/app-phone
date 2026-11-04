@@ -11,6 +11,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
+# This workflow only reads the repo, so don't inherit whatever write scopes the repo's default
+# GITHUB_TOKEN settings hand out -- a build or test step runs third-party code.
+permissions:
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
