@@ -23,6 +23,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        # Don't leave the token in .git/config for the later steps -- they run third-party
+        # code (package installs, build scripts, tests) and none of them need to push.
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-dotnet@v4
         with:

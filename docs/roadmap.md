@@ -239,3 +239,13 @@ on a deadlock or a dead connection held a runner until the platform default — 
 GitHub, 1 hour on GitLab unless the project changed it. Added `timeout-minutes: 15` to
 `dotnet.yml`/`node.yml` and `timeout: 15 minutes` to the GitLab pair; a project with a
 slower suite raises the one number.
+
+## 24. GitHub CI templates left the token in the checkout — ✅ Done
+
+Gap: item 22 narrowed the `GITHUB_TOKEN` to `contents: read`, but `actions/checkout`
+still wrote it into `.git/config` by default (`persist-credentials: true`), where every
+later step — `npm ci`/`dotnet restore` scripts, the build, the tests — could read it. No
+step in either template pushes, so `dotnet.yml` and `node.yml` now check out with
+`persist-credentials: false`. A project that adds a step that pushes turns it back on
+for that job. GitLab's job token is not written into the clone this way, so the GitLab
+pair is unchanged.
