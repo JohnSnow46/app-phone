@@ -249,3 +249,12 @@ step in either template pushes, so `dotnet.yml` and `node.yml` now check out wit
 `persist-credentials: false`. A project that adds a step that pushes turns it back on
 for that job. GitLab's job token is not written into the clone this way, so the GitLab
 pair is unchanged.
+
+## 25. Dependabot template opened one PR per package — ✅ Done
+
+Gap: `templates/dependabot.yml` had no `groups:`, so a weekly run on a project with a few
+dozen dependencies opened a separate PR for every minor/patch bump — each with its own CI
+run and review, for changes that are almost always drop-in. Each ecosystem block now
+groups `minor` and `patch` updates into one PR; major bumps still arrive one per package,
+since those are the ones that can need code changes. Renovate's `config:recommended`
+already groups related packages, so `renovate.json` is unchanged.

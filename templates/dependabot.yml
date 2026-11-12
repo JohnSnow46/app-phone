@@ -5,12 +5,20 @@ updates:
     directory: "/"
     schedule:
       interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"
+    # One PR for all minor/patch bumps instead of one per package; majors still get their
+    # own PR, since those are the ones that can need code changes.
+    groups:
+      nuget-minor-and-patch:
+        update-types: ["minor", "patch"]
 
   # Node (npm) — delete this block if the project isn't Node.
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"
+    groups:
+      npm-minor-and-patch:
+        update-types: ["minor", "patch"]
 
   # GitHub Actions — keeps the workflows in templates/ci/ (or wherever you copied them)
   # themselves up to date (e.g. actions/checkout, actions/setup-dotnet). Safe to keep
@@ -19,3 +27,6 @@ updates:
     directory: "/"
     schedule:
       interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"
+    groups:
+      actions-minor-and-patch:
+        update-types: ["minor", "patch"]
