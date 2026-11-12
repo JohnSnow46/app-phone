@@ -258,3 +258,12 @@ run and review, for changes that are almost always drop-in. Each ecosystem block
 groups `minor` and `patch` updates into one PR; major bumps still arrive one per package,
 since those are the ones that can need code changes. Renovate's `config:recommended`
 already groups related packages, so `renovate.json` is unchanged.
+
+## 26. Dependency-update templates proposed releases the day they shipped — ✅ Done
+
+Gap: both `templates/dependabot.yml` and `templates/renovate.json` offered a new version
+as soon as it was published. Compromised and broken releases are usually caught and
+yanked within a day or two, and a bot that opens the PR in that window hands them
+straight to the reviewer. Dependabot now waits `cooldown: default-days: 3` in every
+ecosystem block, and Renovate waits `minimumReleaseAge: "3 days"`. Security updates
+aren't held back by Dependabot's cooldown.

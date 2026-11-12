@@ -5,6 +5,9 @@
   // `renovate` against this repo. Fill in the bracketed schedule below.
   "extends": ["config:recommended"],
   "schedule": ["[YOUR SCHEDULE, e.g. before 6am on monday]"],
+  // Wait 3 days after a release before proposing it: a hijacked or broken release is
+  // usually yanked within that window, before it ever reaches this repo.
+  "minimumReleaseAge": "3 days",
   // Delete this block if the project isn't .NET -- keeps NuGet references current.
   "nuget": {
     "enabled": true
