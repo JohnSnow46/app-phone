@@ -5,12 +5,12 @@ updates:
     directory: "/"
     schedule:
       interval: "[YOUR SCHEDULE INTERVAL, e.g. weekly]"
-    # One PR for all minor/patch bumps instead of one per package; majors still get their
-    # own PR, since those are the ones that can need code changes.
     # Wait 3 days after a release before proposing it: a hijacked or broken release is
     # usually yanked within that window, before it ever reaches this repo.
     cooldown:
       default-days: 3
+    # One PR for all minor/patch bumps instead of one per package; majors still get their
+    # own PR, since those are the ones that can need code changes.
     groups:
       nuget-minor-and-patch:
         update-types: ["minor", "patch"]
