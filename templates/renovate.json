@@ -16,8 +16,9 @@
   "npm": {
     "enabled": true
   },
-  // Keeps the workflows in templates/ci/ (or wherever you copied them) themselves up
-  // to date (e.g. actions/checkout, actions/setup-dotnet). Safe to keep either way.
+  // Keeps the actions used by the workflows in .github/workflows/ up to date (e.g.
+  // actions/checkout, actions/setup-dotnet). Only that folder is scanned, so the
+  // originals left in templates/ci/ are not updated. Safe to keep either way.
   "github-actions": {
     "enabled": true
   }
